@@ -19,3 +19,6 @@ main()
     console.error(error)
     process.exit(1)
   })
+
+// Contract deployed on Rinkeby test network - address:
+// 0x992B6f8681D76aaB20e0D0Ca76c23dceCFd4B4c7
