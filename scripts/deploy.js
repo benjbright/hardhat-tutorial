@@ -22,3 +22,6 @@ main()
 
 // Contract deployed on Rinkeby test network - address:
 // 0x992B6f8681D76aaB20e0D0Ca76c23dceCFd4B4c7
+
+// Second deployment
+// 0x82D8D3cec24dE87c657A0851b745BFaAC5e67e0E
