@@ -3,7 +3,12 @@ require("@nomicfoundation/hardhat-toolbox")
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 
-const { alchemyApiKey, mnemonic, rinkebyPrivateKey } = require("./secrets.json")
+const {
+  alchemyApiKey,
+  mnemonic,
+  PrivateKey,
+  alchemyGoerliApiKey,
+} = require("./secrets.json")
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -15,7 +20,11 @@ module.exports = {
     rinkeby: {
       url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
       // accounts: { mnemonic: mnemonic },
-      accounts: [rinkebyPrivateKey],
+      accounts: [PrivateKey],
+    },
+    goerli: {
+      url: `https://eth-goerli.g.alchemy.com/v2/${alchemyGoerliApiKey}`,
+      accounts: [PrivateKey],
     },
   },
 }
