@@ -10,16 +10,26 @@ async function main() {
   )
 
   const Token = await ethers.getContractFactory("Token")
+  console.log("Deploying the Token contract...")
   const token = await Token.deploy()
+  await token.deployed()
+  console.log(`Token deployed to: ${token.address}`)
+
   const balance = await token.balanceOf(deployer.address)
   await token.transfer(addr1.address, 100000)
   const balanceAddr1 = await token.balanceOf(addr1.address)
   const updatedBalance = await token.balanceOf(deployer.address)
+  const owner = await token.owner()
+  const symbol = await token.symbol()
 
-  console.log(`Token address: ${token.address}`)
-  console.log(`Account balance - tokens: ${balance}`)
-  console.log(`Account 2 balance - tokens: ${balanceAddr1}`)
-  console.log(`New Account balance after transfer - tokens: ${updatedBalance}`)
+  // console.log(`Token address: ${token.address}`)
+  console.log(`Account balance ${owner} - tokens: ${balance} ${symbol}`)
+  console.log(
+    `Account 2 balance ${addr1.address} - tokens: ${balanceAddr1} ${symbol}`
+  )
+  console.log(
+    `New Account balance after transfer - tokens: ${updatedBalance} ${symbol}`
+  )
 }
 
 main()
@@ -37,3 +47,6 @@ main()
 
 // Contract deployed to goerli test network - address:
 // 0xDB7bdC6D6E8697E7A9E06a94daa430111E01b7e3
+
+// Second deployment
+// 0x46Ac71Da5252EA52905B1C9391A45f2E83f10C6A
